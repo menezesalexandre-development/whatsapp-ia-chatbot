@@ -3,7 +3,7 @@ import ollama
 
 app = Flask(__name__)
 
-model_name = 'mistral'
+model_name = 'dolphin-phi'
 messages = [{"role": "system", "content": "You are a helpful assistant."}]
 
 @app.route("/chat", methods=["POST"])
@@ -23,6 +23,20 @@ def chat():
     messages.append({"role": "assistant", "content": answer})
     
     return jsonify({"reply": answer})
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    data = request.get_json()
+
+    # pega o texto enviado do index.js
+    user_message = data.get("message", "")
+
+    # aqui você coloca sua lógica de IA ou resposta
+    bot_response = f"Você disse: {user_message}"
+
+    # devolve a resposta em JSON para o index.js
+    return jsonify({"reply": bot_response})
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5001)
