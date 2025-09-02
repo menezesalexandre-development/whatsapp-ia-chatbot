@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Defina sua chave de API do OpenRouter como variável de ambiente
-API_KEY = "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"
+API_KEY = "SUA_CHAVE_AQUI"
 if not API_KEY:
     raise ValueError("Defina a variável de ambiente OPENROUTER_API_KEY com sua chave da OpenRouter.")
 
