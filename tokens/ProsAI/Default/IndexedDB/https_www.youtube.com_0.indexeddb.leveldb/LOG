@@ -1,0 +1,6 @@
+2025/08/28-17:38:47.151 1c34 Creating DB C:\xanderson\whatsapp-ia-chatbot\tokens\ProsAI\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb since it was missing.
+2025/08/28-17:38:47.239 1c34 Reusing MANIFEST C:\xanderson\whatsapp-ia-chatbot\tokens\ProsAI\Default\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/08/28-17:38:54.371 25bc Level-0 table #5: started
+2025/08/28-17:38:54.383 25bc Level-0 table #5: 9588 bytes OK
+2025/08/28-17:38:54.392 25bc Delete type=0 #3
+2025/08/28-17:38:54.398 25bc Manual compaction at level-0 from (begin) .. (end); will stop at (end)
