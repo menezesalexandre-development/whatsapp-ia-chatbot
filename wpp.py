@@ -22,8 +22,10 @@ def new_message(message):
         import requests
 
         data = {
+            'user_id': chat_id,
             'message': message_body
         }
+
 
         r = requests.post('http://127.0.0.1:5001/chat', json=data)
         json_response = r.json()
