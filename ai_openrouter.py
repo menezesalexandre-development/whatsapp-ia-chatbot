@@ -5,22 +5,33 @@ import os
 app = Flask(__name__)
 
 # Defina sua chave de API do OpenRouter como variável de ambiente
-API_KEY = "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"
+API_KEY = "SUA_CHAVE_API"
 if not API_KEY:
     raise ValueError("Defina a variável de ambiente OPENROUTER_API_KEY com sua chave da OpenRouter.")
 
 # Modelo que você quer usar
 MODEL_NAME = "openrouter/auto"  # você pode trocar por "meta-llama/llama-3-8b-instruct" ou outro
 
-# Histórico de mensagens
-messages = [{"role": "system", "content": "Você é um assistente útil e responde sempre em português."}]
+# Armazena histórico separado por usuário
+conversations = {}
+
+def get_conversation(user_id):
+    if user_id not in conversations:
+        conversations[user_id] = [
+            {"role": "system", "content": "Você é um assistente útil e responde sempre em português."}
+        ]
+    return conversations[user_id]
 
 @app.route("/chat", methods=["POST"])
 def chat():
     user_input = request.json.get("message", "")
+    user_id = request.json.get("user_id", "default_user")
+
     if not user_input:
         return jsonify({"error": "Nenhuma mensagem enviada"}), 400
     
+    messages = get_conversation(user_id)
+
     # Adiciona a mensagem do usuário
     messages.append({"role": "user", "content": user_input})
 
