@@ -40,8 +40,8 @@ Antes de começar, você precisa ter:
 Passo a passo de como executar o projeto:
 
 ### 1. Clone o repositório:
-    git clone https://github.com/menezesalexandre-development/whatsapp-ia-chatbot/
-
+    git clone https://github.com/menezesalexandre-development/prosai-whatsapp-chatbot.git
+    
 ### 2. Instale as dependências:
     pip install -r requirements.txt
 
